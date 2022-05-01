@@ -1,0 +1,17 @@
+table {
+    border-spacing: 20px;
+    border-collapse: separate
+}
+ 
+.list-todo {
+  margin-top: 30px;
+  width: 500px;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.align-left {
+  text-align: left;
+}

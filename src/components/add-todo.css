@@ -1,0 +1,17 @@
+.add-todo {
+  width: 500px;
+}
+
+form {
+  display: flex;
+  flex-direction: row;
+}
+
+input {
+  flex: 1;
+}
+
+button {
+  width: 100px;
+  cursor: pointer;
+}

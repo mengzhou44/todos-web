@@ -1,0 +1,12 @@
+.app {
+  margin: 0 auto;
+  padding: 20px;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+h3 {
+  text-align: center;
+}
