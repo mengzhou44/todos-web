@@ -1,8 +1,7 @@
 import { render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { act } from 'react-dom/test-utils';
 import EditToDo from './edit-todo';
-import http from './_http';
+import http from '../_http';
 
 const mockDispatch = jest.fn();
 jest.mock('react-redux', () => ({

@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { setCurrent } from '../reducers/todos-reducer';
-import http from './_http';
+import { setCurrent } from '../../reducers/todos-reducer';
+import http from '../_http';
 import './edit-todo.css';
 
 interface EditToDoProps {

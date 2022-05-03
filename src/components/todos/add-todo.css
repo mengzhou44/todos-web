@@ -15,3 +15,8 @@ button {
   width: 100px;
   cursor: pointer;
 }
+
+label {
+  margin-right: 5px;
+}
+ 

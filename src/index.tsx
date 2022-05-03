@@ -4,11 +4,14 @@ import ReactDOM from 'react-dom/client';
 
 import App from './components/App';
 import { Provider } from 'react-redux';
+
+import authReducer from './reducers/auth-reducer';
 import toDoReducer from './reducers/todos-reducer';
 
 export const store = configureStore({
   reducer: {
     todos: toDoReducer,
+    auth: authReducer,
   },
 });
 

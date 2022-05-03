@@ -2,7 +2,7 @@ import React from 'react';
 import './list-todo.css';
 
 import { useDispatch } from 'react-redux';
-import { setCurrent } from '../reducers/todos-reducer';
+import { setCurrent } from '../../reducers/todos-reducer';
 
 interface ListToDoProps {
   list: Array<any>;

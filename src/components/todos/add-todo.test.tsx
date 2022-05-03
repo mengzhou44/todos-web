@@ -1,11 +1,10 @@
 import { render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import AddToDo from './add-todo';
-import http from './_http';
+import http from '../_http';
 
 describe('AddToDo', () => {
   test('click add button should trigger newToDoAdded event', async () => {
-
 
     http.post = jest.fn().mockReturnValue(undefined);
     const callback = jest.fn();

@@ -1,47 +1,34 @@
-import React, { useEffect } from 'react';
-import http from './_http';
-import AddToDo from './add-todo';
-import { useDispatch, useSelector } from 'react-redux';
-import { setList } from '../reducers/todos-reducer';
+import React from 'react';
+import GoogleLogin from 'react-google-login';
+import ToDosPage from './todos/_index';
+import { useSelector } from 'react-redux';
+
 import './App.css';
-import ListToDo from './list-todo';
-import EditToDo from './edit-todo';
 
 const App: React.FunctionComponent = () => {
-  let list = useSelector((state: any) => state.todos.list);
-  const current = useSelector((state: any) => state.todos.current);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    fetchList();
-  }, []);
+  let authenticated = useSelector((state: any) => state.auth.authenticated);
 
-  async function fetchList() {
-    const res = await http.get('/todos');
-    dispatch(setList(res.data));
-  }
+  const handleSuccess = (res) => {
+    console.log(res);
+  };
 
-  async function deleteTodo(item: any) {
-    await http.delete(`/todos/delete/${item.id}`);
-    await fetchList();
-  }
+  const handleFailure = (err) => {
+    console.log(err);
+  };
   
-  return (
-    <div className="app">
-      <h3>Pern To Do List</h3>
-      <AddToDo
-        newToDoAdded={async () => {
-          await fetchList();
-        }}
-      />
-      <ListToDo list={list} onDelete={(item: any) => deleteTodo(item)} />
-      <EditToDo
-        item={current}
-        onSaved={async () => {
-          await fetchList();
-        }}
-      />
-    </div>
-  );
+  if (authenticated === false) {
+    return (
+      <GoogleLogin
+        clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+        buttonText="Log in with Google"
+        onSuccess={handleSuccess}
+        onFailure={handleFailure}
+        cookiePolicy={'single_host_origin'}
+      ></GoogleLogin>
+    );
+  }
+
+  return <ToDosPage />;
 };
 
 export default App;

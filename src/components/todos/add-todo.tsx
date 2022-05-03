@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import http from './_http';
+import http from '../_http';
 import './add-todo.css';
-import { getErrorMessage } from '../utils/get-error-message';
+import { getErrorMessage } from '../../utils/get-error-message';
 
 interface AddToDoProps {
   newToDoAdded: () => void;
